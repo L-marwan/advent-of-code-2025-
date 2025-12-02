@@ -1,6 +1,8 @@
 package com.marouane.advent;
 
 import com.marouane.advent.day1.Day1;
+import com.marouane.advent.day2.Day2;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -10,7 +12,7 @@ import java.nio.file.Paths;
 public class Run {
 
     static void main(String[] args) throws URISyntaxException, IOException {
-        String resourceName = "day1.txt";
+        String resourceName = "day2.txt";
         ClassLoader cl = Run.class.getClassLoader();
         var filePath = cl.getResource(resourceName);
 
@@ -19,7 +21,7 @@ public class Run {
                 return;
             }
             String input = Files.readString(Paths.get(filePath.toURI()), StandardCharsets.UTF_8);
-            int result = Day1.part2(input);
+            long result = Day2.part1(input);
             System.out.println(result);
 
     }
