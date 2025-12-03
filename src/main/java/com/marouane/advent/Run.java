@@ -1,6 +1,5 @@
 package com.marouane.advent;
 
-import com.marouane.advent.day1.Day1;
 import com.marouane.advent.day2.Day2;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class Run {
                 return;
             }
             String input = Files.readString(Paths.get(filePath.toURI()), StandardCharsets.UTF_8);
-            long result = Day2.part1(input);
+            long result = Day2.part2(input);
             System.out.println(result);
 
     }

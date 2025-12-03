@@ -1,6 +1,5 @@
 package com.marouane.advent.day2;
 
-import com.marouane.advent.day1.Day1;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,5 +20,23 @@ class Day2Test {
         var expectedOutput = 4174379265L;
 
         assertEquals(expectedOutput, Day2.part2(input));
+    }
+
+    @Test
+    void isRepeatedPatternTest(){
+        assertFalse(Day2.isRepeatedPattern("2121212123"));
+        assertFalse(Day2.isRepeatedPattern("1414149"));
+        assertTrue(Day2.isRepeatedPattern("999"));
+        assertFalse(Day2.isRepeatedPattern("133453245"));
+        assertFalse(Day2.isRepeatedPattern("110"));
+        assertTrue(Day2.isRepeatedPattern("22"));
+
+        assertTrue(Day2.isRepeatedPattern("1010"));
+        assertTrue(Day2.isRepeatedPattern("446446"));
+        assertTrue(Day2.isRepeatedPattern("222222"));
+        assertTrue(Day2.isRepeatedPattern("38593859"));
+        assertTrue(Day2.isRepeatedPattern("565656"));
+        assertTrue(Day2.isRepeatedPattern("824824824"));
+        assertTrue(Day2.isRepeatedPattern("2121212121"));
     }
 }

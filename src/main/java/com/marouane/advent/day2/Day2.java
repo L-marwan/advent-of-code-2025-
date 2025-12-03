@@ -31,34 +31,45 @@ public class Day2 {
             long end = Long.parseLong(range.split("-")[1]);
             for (long i = start; i <= end; i++) {
                 var stringRepresentation = String.valueOf(i);
-                if(isRepeatedPattern(stringRepresentation))
+                if (isRepeatedPattern(stringRepresentation))
                     sum += i;
             }
         }
         return sum;
     }
 
-    private static boolean isRepeatedPattern(String stringRepresentation) {
+    static boolean isRepeatedPattern(String stringRepresentation) {
         var length = stringRepresentation.length();
+
         for (int i = 1; i < length; i++) {
             var pattern = stringRepresentation.substring(0, i);
-            var isRepeated = true;
-            var j= pattern.length();
-            while (isRepeated  && j<=length ) {
-                if (j+ pattern.length() > length) {
-                    return false;
-                }
-                if (!pattern.equals(stringRepresentation.substring(j,j+pattern.length()))) {
-                    isRepeated = false;
-                }
-                j = j+pattern.length();
-            }
-            if (!isRepeated) {
-                return false;
+            if (isRepeatedPattern(pattern, stringRepresentation.substring(i))) {
+                System.out.println(stringRepresentation);
+                return true;
             }
         }
 
+        return false;
+    }
 
+    private static boolean isRepeatedPattern(String pattern, String substring) {
+        int patternLength = pattern.length();
+        int substringLength = substring.length();
+
+        if (patternLength == substringLength) {
+            return pattern.equals(substring);
+        }
+        if (substringLength % patternLength != 0 || patternLength > substringLength
+                || patternLength * 2 > substringLength) {
+            return false;
+        }
+
+        for (var i = 0; i <= substringLength - patternLength; i = i + patternLength) {
+            if (!pattern.equals(substring.substring(i, i + patternLength))) {
+                return false;
+            }
+
+        }
         return true;
     }
 }
