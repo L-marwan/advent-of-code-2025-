@@ -41,7 +41,7 @@ public class Day2 {
     static boolean isRepeatedPattern(String stringRepresentation) {
         var length = stringRepresentation.length();
 
-        for (int i = 1; i < length; i++) {
+        for (int i = 1; i < (length/2)+1; i++) {
             var pattern = stringRepresentation.substring(0, i);
             if (isRepeatedPattern(pattern, stringRepresentation.substring(i))) {
                 System.out.println(stringRepresentation);

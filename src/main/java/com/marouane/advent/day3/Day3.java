@@ -24,7 +24,35 @@ public class Day3 {
     }
 
 
-    public static int part2(String input) {
-        return 0;
+    public static long part2(String input) {
+        var result = 0L;
+        for (String line : input.split("\n")) {
+
+            int[] digits = Arrays.stream(line.trim().split("")).mapToInt(Integer::parseInt).toArray();
+            String max = getMax(digits);
+            System.out.println(max);
+            result += Long.parseLong(max);
+
+        }
+        return result;
+    }
+
+     static String getMax(int[] digits) {
+        var left = 12;
+        var start = 0;
+        String max="";
+
+        while (left >0){
+            var maxDigitIndex = start;
+            for(int i = start; i< digits.length- left +1; i++){
+                if(digits[i]> digits[maxDigitIndex]){
+                    maxDigitIndex = i;
+                }
+            }
+            max+= digits[maxDigitIndex]+"";
+            start=  maxDigitIndex +1;
+            left--;
+        }
+        return max;
     }
 }
