@@ -20,7 +20,7 @@ public class Run {
             return;
         }
         String input = Files.readString(Paths.get(filePath.toURI()), StandardCharsets.UTF_8);
-        long result = Day4.part1(input);
+        long result = Day4.part2(input);
         System.out.println(result);
 
     }
