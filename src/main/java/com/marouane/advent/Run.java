@@ -21,7 +21,7 @@ public class Run {
             return;
         }
         String input = Files.readString(Paths.get(filePath.toURI()), StandardCharsets.UTF_8);
-        long result = Day5.part1(input,"\r\n");
+        long result = Day5.part2(input,"\r\n");
         System.out.println(result);
 
     }
